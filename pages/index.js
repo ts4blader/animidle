@@ -1,12 +1,14 @@
 import Hero from "../components/Hero";
 import Jumbotron from "../components/Jumbotron";
+import FAQ from "../components/FAQ";
 import jumboData from "../data/jumbo.json";
 
 export default function Home() {
   return (
     <div className="home-page">
       <Hero />
-      <div className="jumbotrons">
+      {/* Jumbo */}
+      <section className="jumbotrons">
         {jumboData.map((item) => {
           return (
             <div key={item.id} className="jumbo-wrapper">
@@ -15,7 +17,10 @@ export default function Home() {
             </div>
           );
         })}
-      </div>
+      </section>
+      {/* FAQ */}
+      <div className="divider"></div>
+      <FAQ />
     </div>
   );
 }
