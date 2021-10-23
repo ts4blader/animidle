@@ -1,10 +1,15 @@
-import React, { useMemo, useState, useRef, useCallback } from "react";
+import React, { useMemo, useState, useRef, useEffect } from "react";
 import faqData from "../data/faqs.json";
 import Icon from "./Icon";
 import SubscribeForm from "./SubscribeForm";
 
 const Capsule = ({ content }) => {
   const [toggle, setToggle] = useState(false);
+  const [height, setHeight] = useState({
+    head: 0,
+    full: 0,
+  });
+
   const headRef = useRef(null);
   const bodyRef = useRef(null);
 
@@ -12,18 +17,19 @@ const Capsule = ({ content }) => {
     return content.body.split("\n");
   }, []);
 
+  useEffect(() => {
+    setHeight({
+      head: headRef.current.clientHeight,
+      full: headRef.current.clientHeight + bodyRef.current.clientHeight,
+    });
+  }, [headRef, bodyRef]);
+
   return (
     <div
       className="capsule"
       data-toggle={toggle}
       style={
-        toggle
-          ? { height: `${headRef.current.clientHeight}px` }
-          : {
-              height: `${
-                headRef.current.clientHeight + bodyRef.current.clientHeight
-              }px`,
-            }
+        toggle ? { height: `${height.full}px` } : { height: `${height.head}px` }
       }
     >
       <div

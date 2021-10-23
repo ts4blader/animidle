@@ -1,6 +1,7 @@
 import Hero from "../components/Hero";
 import Jumbotron from "../components/Jumbotron";
 import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
 import jumboData from "../data/jumbo.json";
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
       {/* FAQ */}
       <div className="divider"></div>
       <FAQ />
+      <div className="divider"></div>
+      <Footer />
     </div>
   );
 }

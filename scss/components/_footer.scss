@@ -1,0 +1,33 @@
+.footer {
+    max-width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    padding: 5vh 0;
+    a {
+        color: rgba($color: $white-color, $alpha: 0.5);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__head {
+        margin-bottom: 5rem;
+    }
+    &__body {
+        font-size: 0.8em;
+        text-transform: capitalize;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        grid-gap: 2rem;
+        margin-bottom: 5rem;
+        .pillar {
+            li {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+    &__foot {
+        text-transform: capitalize;
+        font-size: 0.8em;
+    }
+}
