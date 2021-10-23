@@ -28,7 +28,7 @@
                 cursor: pointer;
                 @include flex(space-between, center);
                 padding: 2rem 4rem;
-                border-bottom: 1px solid #000;
+                border-bottom: 2px solid #000;
                 .icon {
                     transition: transform 0.3s ease;
                     width: 0.8em;
