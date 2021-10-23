@@ -1,0 +1,46 @@
+.subscribe-form {
+    font-size: 1.8rem;
+    &__head {
+        margin-bottom: 2rem;
+    }
+    &__body {
+        display: flex;
+        .input {
+            border: none;
+            position: relative;
+            flex-grow: 1;
+            $left-padding: 2rem;
+            input {
+                padding-left: $left-padding;
+                font-size: 1em;
+                width: 100%;
+                height: 100%;
+                &:focus + .placeholder {
+                    top: 20%;
+                    font-size: 0.8em;
+                }
+            }
+            .placeholder {
+                transition: 100ms linear;
+                position: absolute;
+                left: $left-padding;
+                top: 50%;
+                transform: translateY(-50%);
+                color: rgb(131, 131, 131);
+            }
+        }
+        .cta-btn {
+            cursor: pointer;
+            width: max-content;
+            padding: 2rem 3rem;
+            font-size: 1.2em;
+            display: flex;
+            background: $main-color;
+            .icon {
+                margin-left: 1.2rem;
+                width: 1em;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+header {
+    @include flex(space-between, center);
+    padding: 2rem 5rem;
+    .logo {
+        width: 5rem;
+    }
+    .btn {
+        background: $main-color;
+        text-transform: capitalize;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        border-radius: 0.3rem;
+    }
+}
