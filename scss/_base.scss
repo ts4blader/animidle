@@ -1,0 +1,80 @@
+// import font and other cdn
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; // 1rem = 10px;
+    font-family: $main-font;
+}
+
+body {
+    font-size: 2rem;
+    color: $black-color;
+    background: $bg-color;
+    line-height: 1.25;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: $text-color;
+}
+
+.wrapper {
+    max-width: $max-width;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hide-on-xs {
+    @include responsive($break-point-xs) {
+        display: none !important;
+    }
+}
+.hide-on-sm {
+    @include responsive($break-point-sm) {
+        display: none !important;
+    }
+}
+.hide-on-md {
+    @include responsive($break-point-md) {
+        display: none !important;
+    }
+}
+.hide-on-lg {
+    @include responsive($break-point-lg) {
+        display: none !important;
+    }
+}
+
+.show-on-xs {
+    @include responsive($break-point-xs) {
+        display: initial !important;
+    }
+}
+.show-on-sm {
+    @include responsive($break-point-sm) {
+        display: initial !important;
+    }
+}
+.show-on-md {
+    @include responsive($break-point-md) {
+        display: initial !important;
+    }
+}
+.show-on-lg {
+    @include responsive($break-point-lg) {
+        display: initial !important;
+    }
+}
