@@ -1,0 +1,24 @@
+.jumbotron {
+    max-width: 100rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 10rem 0;
+    &[data-direction="row-reverse"] {
+        flex-direction: row-reverse;
+    }
+    &__divider {
+        width: 20rem;
+    }
+    &__content {
+        font-size: 2rem;
+        .title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        .subtitle {
+            line-height: 1.5;
+        }
+    }
+}
