@@ -1,4 +1,8 @@
 header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
     @include flex(space-between, center);
     padding: 2rem 5rem;
     .logo {

@@ -19,12 +19,6 @@
             margin-bottom: 5rem;
         }
     }
-    header {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-    }
 }
 @include responsive($break-point-xs) {
     .hero {
