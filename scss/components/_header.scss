@@ -12,3 +12,8 @@ header {
         border-radius: 0.3rem;
     }
 }
+@include responsive($break-point-xs) {
+    header {
+        padding: 2rem 3rem;
+    }
+}

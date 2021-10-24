@@ -7,6 +7,14 @@ $left-padding: 2rem;
     }
     &__body {
         display: flex;
+        position: relative;
+        p.error-mes {
+            position: absolute;
+            font-weight: bold;
+            top: 110%;
+            left: 0;
+            color: #ff4800;
+        }
         .input {
             border: none;
             position: relative;
@@ -31,6 +39,7 @@ $left-padding: 2rem;
             }
         }
         .cta-btn {
+            all: unset;
             cursor: pointer;
             width: max-content;
             padding: 2rem 3rem;
@@ -61,5 +70,10 @@ $left-padding: 2rem;
                 margin: 2rem auto;
             }
         }
+    }
+}
+@include responsive($break-point-xs) {
+    .subscribe-form {
+        font-size: 2rem;
     }
 }

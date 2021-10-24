@@ -43,3 +43,16 @@
         }
     }
 }
+
+@include responsive($break-point-xs) {
+    .jumbotron {
+        &__content {
+            .title {
+                font-size: 2em;
+            }
+            .subtitle {
+                font-size: 1.1em;
+            }
+        }
+    }
+}

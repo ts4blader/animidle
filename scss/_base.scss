@@ -15,6 +15,9 @@ html {
     @include responsive($break-point-sm) {
         font-size: 55%;
     }
+    @include responsive($break-point-xs) {
+        font-size: 50%;
+    }
 }
 
 body {
@@ -37,6 +40,7 @@ a {
 
 .wrapper {
     max-width: $max-width;
+    overflow: hidden;
 }
 .container {
     margin: 0 auto;
