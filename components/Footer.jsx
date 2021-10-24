@@ -21,7 +21,7 @@ const Pillar = ({ content }) => {
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer container">
       <div className="footer__head">
         <a href="#">
           <p className="text">Questions? Contact us.</p>

@@ -27,3 +27,19 @@
         }
     }
 }
+
+@include responsive($break-point-sm) {
+    .jumbotron {
+        flex-direction: column !important;
+        &__content {
+            text-align: center;
+            .title {
+                font-size: 2.2em;
+                margin-bottom: 0.5em;
+            }
+            .subtitle {
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}

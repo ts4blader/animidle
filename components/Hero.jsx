@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <Header />
-      <div className="hero__content">
+      <div className="hero__content container">
         <h2 className="title">Unlimited movies, TV shows, and more.</h2>
         <p className="subtitle">Watch anywhere. Cancel anytime.</p>
         <div className="hero__cta">

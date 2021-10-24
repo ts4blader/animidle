@@ -3,7 +3,7 @@ import NextImage from "./NextImage";
 
 export default function Jumbotron({ content }) {
   return (
-    <div className="jumbotron" data-direction={content.direction}>
+    <div className="jumbotron container" data-direction={content.direction}>
       <div className="jumbotron__content">
         <h3 className="title">{content.title}</h3>
         <p className="subtitle">{content.subTitle}</p>

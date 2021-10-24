@@ -2,6 +2,7 @@
     position: relative;
     height: 80vh;
     background: url("/images/fate.jpg") no-repeat;
+    background-position: center center;
     background-size: cover;
     @include flex();
     text-align: center;

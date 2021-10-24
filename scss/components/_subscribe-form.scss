@@ -1,3 +1,5 @@
+$left-padding: 2rem;
+
 .subscribe-form {
     font-size: 1.8rem;
     &__head {
@@ -9,7 +11,6 @@
             border: none;
             position: relative;
             flex-grow: 1;
-            $left-padding: 2rem;
             input {
                 padding-left: $left-padding;
                 font-size: 1em;
@@ -34,12 +35,30 @@
             width: max-content;
             padding: 2rem 3rem;
             font-size: 1.2em;
+            left: $left-padding;
             display: flex;
             background: $main-color;
             .icon {
                 margin-left: 1.2rem;
                 width: 1em;
                 transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+@include responsive($break-point-sm) {
+    .subscribe-form {
+        font-size: 2.2rem;
+        &__body {
+            flex-direction: column;
+            .input {
+                input {
+                    padding: $left-padding;
+                }
+            }
+            .cta-btn {
+                margin: 2rem auto;
             }
         }
     }

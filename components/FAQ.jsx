@@ -53,7 +53,7 @@ const Capsule = ({ content }) => {
 
 export default function FAQ() {
   return (
-    <section className="faq">
+    <section className="faq container">
       <h4 className="faq__title">Frequently Asked Questions</h4>
       <ul className="faq-list">
         {faqData.map((item) => {

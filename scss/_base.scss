@@ -12,6 +12,9 @@ html {
     @include responsive($break-point-lg) {
         font-size: 50%;
     }
+    @include responsive($break-point-sm) {
+        font-size: 55%;
+    }
 }
 
 body {
@@ -36,8 +39,10 @@ a {
     max-width: $max-width;
 }
 .container {
-    width: 80%;
     margin: 0 auto;
+    @include responsive($break-point-sm) {
+        width: 90%;
+    }
 }
 
 .divider {

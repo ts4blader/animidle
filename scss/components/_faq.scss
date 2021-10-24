@@ -1,6 +1,6 @@
 .faq {
     font-size: 2rem;
-    margin: 10rem 0;
+    padding: 10rem 0;
     &__title {
         text-align: center;
         font-weight: bold;
@@ -11,7 +11,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 5rem;
-        width: 80rem;
+        max-width: 80rem;
         line-height: 1.5;
         .capsule {
             overflow: hidden;
@@ -48,6 +48,6 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-        width: 80rem;
+        max-width: 80rem;
     }
 }
