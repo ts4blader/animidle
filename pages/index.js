@@ -2,11 +2,15 @@ import Hero from "../components/Hero";
 import Jumbotron from "../components/Jumbotron";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import MyHead from "../components/MyHead";
 import jumboData from "../data/jumbo.json";
 
 export default function Home() {
   return (
     <div className="home-page">
+      {/* Meta Head */}
+      <MyHead />
+
       <Hero />
       {/* Jumbo */}
       <section className="jumbotrons">
