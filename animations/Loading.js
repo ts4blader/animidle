@@ -37,6 +37,13 @@ export const completeLoading = (soundPlay, screenWidth) => {
       ease: "Expo.easeOut",
     });
   }
+
+  tl.from(".container", {
+    duration: 1,
+    y: "50%",
+    opacity: 0,
+    ease: "Power3.easeOut",
+  });
 };
 
 const floatBG = () => {
