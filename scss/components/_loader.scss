@@ -1,0 +1,69 @@
+.loader {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: $modal-layer + 1;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    &[data-mobile="true"] {
+        .loader__overlay {
+            height: 60vh;
+            width: 300vw;
+            bottom: -60vh;
+            top: unset;
+            right: -30%;
+            object-position: 0% 100%;
+        }
+    }
+    &__bg {
+        width: 100%;
+        height: 100%;
+        background: url("/images/loading-screen.jpg") no-repeat;
+        background-size: 300vw;
+        background-position: 20% 30%;
+    }
+    &__overlay {
+        $width: 60vw;
+        position: absolute;
+        top: 0;
+        right: -$width;
+        width: $width;
+        height: 100%;
+        object-fit: cover;
+        object-position: 100% 0;
+        filter: invert(100%);
+    }
+    .logo-wrapper {
+        position: absolute;
+        font-size: 8rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        top: 70%;
+        right: 20%;
+        transform: translateY(-50%);
+        @include responsive($break-point-xs) {
+            font-size: 4rem;
+        }
+        .bar {
+            position: absolute;
+            opacity: 0;
+            top: 100%;
+            left: 100%;
+            width: 1000%;
+            height: 0.8rem;
+            background: white;
+            transform: skewX(-45deg);
+        }
+        .text {
+            position: relative;
+            overflow: hidden;
+            .logo {
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
+    }
+}
