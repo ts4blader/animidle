@@ -42,7 +42,7 @@ export const completeLoading = (soundPlay, screenWidth) => {
     duration: 1,
     y: "50%",
     opacity: 0,
-    ease: "Power3.easeOut",
+    ease: "Expo.easeOut",
   });
 };
 

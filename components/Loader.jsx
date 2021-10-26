@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { completeLoading, Loading } from "../animations/Loading";
-import { useRouter } from "next/router";
 
 const TOTAL_ANIMATION_TIME = 3000;
 const ANIMATION_COMPLETE_DELAY = 2000;
@@ -9,7 +8,6 @@ export default function Loader() {
   const [screenWidth, setSreenWidth] = useState(0);
   const [soundDraw, setSoundDraw] = useState(null);
   const [soundCover, setSoundCover] = useState(null);
-  const router = useRouter();
 
   useEffect(() => {
     // Load sound from public folder
@@ -17,13 +15,12 @@ export default function Loader() {
     setSoundCover(new Audio("/sounds/sword_draw.mp3"));
     // Set screen width
     setSreenWidth(window.innerWidth);
-    //* Checked for client side
 
-    const handleRouteChange = () => {
-      if (soundDraw != null) Loading(() => soundDraw.play(), window.innerWidth);
-      else Loading(null, window.innerWidth);
-    };
-    const handleRouteComplete = () => {
+    //* Checked for client side
+    if (soundDraw != null) Loading(() => soundDraw.play(), window.innerWidth);
+    else Loading(null, window.innerWidth);
+
+    window.addEventListener("load", () => {
       window.requestAnimationFrame((time) => {
         setTimeout(() => {
           //* Checked for client side
@@ -32,17 +29,7 @@ export default function Loader() {
           else completeLoading(null, window.innerWidth);
         }, TOTAL_ANIMATION_TIME - time + ANIMATION_COMPLETE_DELAY);
       });
-    };
-
-    //* Bind event on router change and router complete
-    router.events.on("routeChangeStart", handleRouteChange());
-    router.events.on("routeChangeComplete", handleRouteComplete());
-
-    return () => {
-      //* Bind event on router change and router complete
-      router.events.off("routeChangeStart", handleRouteChange);
-      router.events.off("routeChangeComplete", handleRouteComplete);
-    };
+    });
   }, []);
 
   return (
