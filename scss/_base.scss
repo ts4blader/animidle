@@ -43,7 +43,8 @@ a {
     overflow: hidden;
 }
 .container {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     @include responsive($break-point-sm) {
         width: 90%;
     }

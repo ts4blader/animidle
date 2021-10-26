@@ -1,0 +1,61 @@
+.sign-in-page {
+    background: url("/images/fate.jpg") no-repeat;
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    &__content {
+        flex-grow: 1;
+        font-size: 2rem;
+        max-width: 60rem;
+        background: rgba($color: #000, $alpha: 0.6);
+        border-radius: 1rem;
+        padding: 5vh 10vh;
+        .sign-in-form {
+            &__head {
+                font-size: 2.5em;
+                font-weight: bold;
+                margin-bottom: 5rem;
+            }
+            .field {
+                margin-bottom: 3rem;
+                input {
+                    color: $white-color;
+                    background: #333333;
+                    padding-top: 1.5rem;
+                    padding-bottom: 1.5rem;
+                }
+            }
+            .btn-submit {
+                all: unset;
+                cursor: pointer;
+                width: 100%;
+                font-size: 1.2em;
+                background: $main-color;
+                text-align: center;
+                padding: 1.5rem 0;
+            }
+        }
+    }
+}
+@include responsive($break-point-xs) {
+    .sign-in-page {
+        &__content {
+            font-size: 2rem;
+            background: none;
+            border-radius: 0;
+            padding: 5vw;
+            .sign-in-form {
+                &__head {
+                    text-align: center;
+                    margin-bottom: 3rem;
+                }
+                .field {
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+}

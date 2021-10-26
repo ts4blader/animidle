@@ -33,7 +33,7 @@ export default function SubscribeForm() {
         </p>
       </div>
       <form className="subscribe-form__body" onSubmit={handleSubmit}>
-        <div className="input">
+        <div className="input-text">
           <input
             type="text"
             value={email}

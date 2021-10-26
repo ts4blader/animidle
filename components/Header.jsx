@@ -2,7 +2,7 @@ import React from "react";
 import Icon from "./Icon";
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ signin = true }) {
   return (
     <header>
       <div className="logo">
@@ -12,11 +12,13 @@ export default function Header() {
           </a>
         </Link>
       </div>
-      <Link href="/signin">
-        <a>
-          <div className="btn sign-in">Sign in</div>
-        </a>
-      </Link>
+      {signin && (
+        <Link href="/signin">
+          <a>
+            <div className="btn sign-in">Sign in</div>
+          </a>
+        </Link>
+      )}
     </header>
   );
 }

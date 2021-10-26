@@ -1,0 +1,23 @@
+.input-text {
+    position: relative;
+    flex-grow: 1;
+    input {
+        border: none;
+        padding-left: $left-padding;
+        font-size: 1em;
+        width: 100%;
+        height: 100%;
+        &:focus + .placeholder {
+            top: 20%;
+            font-size: 0.7em;
+        }
+    }
+    .placeholder {
+        transition: 100ms linear;
+        position: absolute;
+        left: $left-padding;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgb(131, 131, 131);
+    }
+}
