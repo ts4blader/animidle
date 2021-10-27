@@ -14,6 +14,9 @@
         border-radius: 1rem;
         padding: 5vh 10vh;
         .sign-in-form {
+            hr {
+                margin: 1.5rem 0;
+            }
             &__head {
                 font-size: 2.5em;
                 font-weight: bold;
@@ -24,8 +27,8 @@
                 input {
                     color: $white-color;
                     background: #333333;
-                    padding-top: 1.5rem;
-                    padding-bottom: 1.5rem;
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
                 }
             }
             .btn-submit {
@@ -36,6 +39,42 @@
                 background: $main-color;
                 text-align: center;
                 padding: 1.5rem 0;
+                margin-bottom: 1rem;
+            }
+            &__foot {
+                font-size: 0.8em;
+                .sign-up-cta {
+                    .link {
+                        cursor: pointer;
+                        color: rgb(0, 204, 255);
+                        text-decoration: underline;
+                    }
+                }
+                .auth {
+                    display: flex;
+                    .btn-icon {
+                        flex-grow: 1;
+                        @include flex();
+                        cursor: pointer;
+                        font-size: 1.2em;
+                        padding: 1rem 1.5rem;
+                        margin: 1.5rem 1rem;
+                        border-radius: 0.5rem;
+                        .icon {
+                            width: 1.5em;
+                        }
+                    }
+                    .btn-facebook {
+                        background: $facebook-color;
+                    }
+                    .btn-google {
+                        background: $google-color;
+                        color: $black-color;
+                    }
+                    .btn-github {
+                        background: $github-color;
+                    }
+                }
             }
         }
     }
@@ -54,6 +93,16 @@
                 }
                 .field {
                     margin-bottom: 2rem;
+                }
+                &__foot {
+                    font-size: 1em;
+                    .auth {
+                        .btn-icon {
+                            .icon {
+                                width: 1em;
+                            }
+                        }
+                    }
                 }
             }
         }

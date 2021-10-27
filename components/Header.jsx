@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header({ signin = true }) {
   return (
-    <header>
+    <header className="header">
       <div className="logo">
         <Link href="/">
           <a>
@@ -18,6 +18,11 @@ export default function Header({ signin = true }) {
             <div className="btn sign-in">Sign in</div>
           </a>
         </Link>
+      )}
+      {!signin && (
+        <a>
+          <div className="btn sign-in mode-switch">Sign up</div>
+        </a>
       )}
     </header>
   );

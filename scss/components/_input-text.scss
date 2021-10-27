@@ -9,10 +9,11 @@
         height: 100%;
         &:focus + .placeholder {
             top: 20%;
-            font-size: 0.7em;
+            font-size: 0.6em;
         }
     }
     .placeholder {
+        pointer-events: none;
         transition: 100ms linear;
         position: absolute;
         left: $left-padding;
