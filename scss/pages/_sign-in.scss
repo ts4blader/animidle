@@ -88,7 +88,8 @@
             background: none;
             border-radius: 0;
             padding: 5vw;
-            .sign-in-form {
+            .sign-in-form,
+            .sign-up-form {
                 &__head {
                     text-align: center;
                     margin-bottom: 3rem;
