@@ -1,13 +1,16 @@
 import "../scss/main.scss";
 import Layout from "../components/Layout";
+import Store from "../store/Store";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="wrapper">
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </div>
+    <Store>
+      <div className="wrapper">
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
+    </Store>
   );
 }
 

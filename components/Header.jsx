@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Icon from "./Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { StoreContext, ACTION } from "../store/Store";
 
 export default function Header() {
   const [signin, setSignIn] = useState(false);
   const router = useRouter();
+  const [state, dispatch] = useContext(StoreContext);
+
   useEffect(() => {
     if (router.pathname === "/signin") {
       setSignIn(true);
@@ -30,7 +33,14 @@ export default function Header() {
       )}
       {signin && (
         <a>
-          <div className="btn sign-in mode-switch">Sign up</div>
+          <div
+            className="btn sign-in mode-switch"
+            onClick={() => {
+              dispatch({ type: ACTION.TOGGLE_SIGNUP_FORM });
+            }}
+          >
+            {state.showSignUpForm ? "Sign in" : "Sign up"}
+          </div>
         </a>
       )}
     </header>

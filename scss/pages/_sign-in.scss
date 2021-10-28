@@ -13,7 +13,9 @@
         background: rgba($color: #000, $alpha: 0.6);
         border-radius: 1rem;
         padding: 5vh 10vh;
-        .sign-in-form {
+        .sign-in-form,
+        .sign-up-form {
+            animation: slideIn 0.7s forwards 1 ease;
             hr {
                 margin: 1.5rem 0;
             }

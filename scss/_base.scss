@@ -56,6 +56,8 @@ a {
     background: rgba($color: $white-color, $alpha: 0.1);
 }
 
+// Functional class
+
 .hide-on-xs {
     @include responsive($break-point-xs) {
         display: none !important;
@@ -95,5 +97,18 @@ a {
 .show-on-lg {
     @include responsive($break-point-lg) {
         display: initial !important;
+    }
+}
+
+// Global Keyframes
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

@@ -9,6 +9,7 @@ header {
         width: 5rem;
     }
     .btn {
+        cursor: pointer;
         background: $main-color;
         text-transform: capitalize;
         font-weight: 600;
