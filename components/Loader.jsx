@@ -6,13 +6,14 @@ const ANIMATION_COMPLETE_DELAY = 2000;
 
 export default function Loader() {
   const [screenWidth, setSreenWidth] = useState(0);
-  const [soundDraw, setSoundDraw] = useState(null);
-  const [soundCover, setSoundCover] = useState(null);
+  const [soundDraw] = useState(
+    typeof Audio !== "undefined" ? new Audio("/sounds/sword_draw.mp3") : null
+  );
+  const [soundCover] = useState(
+    typeof Audio !== "undefined" ? new Audio("/sounds/sword_cover.mp3") : null
+  );
 
   useEffect(() => {
-    // Load sound from public folder
-    setSoundDraw(new Audio("/sounds/sword_draw.mp3"));
-    setSoundCover(new Audio("/sounds/sword_cover.mp3"));
     // Set screen width
     setSreenWidth(window.innerWidth);
 
@@ -27,7 +28,7 @@ export default function Loader() {
         }, TOTAL_ANIMATION_TIME - time + ANIMATION_COMPLETE_DELAY);
       });
     });
-  }, [soundDraw, soundCover]);
+  }, []);
 
   return (
     <div className="loader" data-mobile={screenWidth < 768 ? true : false}>

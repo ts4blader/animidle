@@ -72,10 +72,10 @@ export const Loading = (soundPlay, screenWidth) => {
   tl.to(".loader__bg", {
     duration: 2,
     backgroundPosition: "30% 40%",
+    onStart: soundPlay,
   }).to(".loader__bg", {
     duration: 0,
     width: 0,
-    onComplete: soundPlay,
   });
 
   // Sword Draw
