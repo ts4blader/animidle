@@ -12,21 +12,18 @@ export default function Loader() {
   useEffect(() => {
     // Load sound from public folder
     setSoundDraw(new Audio("/sounds/sword_draw.mp3"));
-    setSoundCover(new Audio("/sounds/sword_draw.mp3"));
+    setSoundCover(new Audio("/sounds/sword_cover.mp3"));
     // Set screen width
     setSreenWidth(window.innerWidth);
 
     //* Checked for client side
-    if (soundDraw != null) Loading(() => soundDraw.play(), window.innerWidth);
-    else Loading(null, window.innerWidth);
+    Loading(() => soundDraw?.play(), window.innerWidth);
 
     window.addEventListener("load", () => {
       window.requestAnimationFrame((time) => {
         setTimeout(() => {
           //* Checked for client side
-          if (soundCover != null)
-            completeLoading(() => soundCover.play(), window.innerWidth);
-          else completeLoading(null, window.innerWidth);
+          completeLoading(() => soundCover?.play(), window.innerWidth);
         }, TOTAL_ANIMATION_TIME - time + ANIMATION_COMPLETE_DELAY);
       });
     });
