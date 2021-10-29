@@ -27,7 +27,7 @@ export default function Loader() {
         }, TOTAL_ANIMATION_TIME - time + ANIMATION_COMPLETE_DELAY);
       });
     });
-  }, []);
+  }, [soundDraw, soundCover]);
 
   return (
     <div className="loader" data-mobile={screenWidth < 768 ? true : false}>
