@@ -1,11 +1,6 @@
 import React, { useState, useCallback } from "react";
 import Icon from "./Icon";
-
-const validateEmail = (emailAdress) => {
-  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (emailAdress.match(regexEmail)) return true;
-  else return false;
-};
+import { validateEmail } from "../libs/mixin";
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState("");

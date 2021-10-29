@@ -13,7 +13,7 @@ $left-padding: 2rem;
             font-weight: bold;
             top: 110%;
             left: 0;
-            color: #ff4800;
+            color: $error-color;
         }
         .cta-btn {
             all: unset;

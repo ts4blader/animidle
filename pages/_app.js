@@ -1,4 +1,5 @@
 import "../scss/main.scss";
+import "../libs/FirebaseHelper";
 import Layout from "../components/Layout";
 import Store from "../store/Store";
 

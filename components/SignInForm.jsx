@@ -1,17 +1,42 @@
 import React, { useState, useContext } from "react";
-import Icon from "./Icon";
+import AuthSection from "./AuthSection";
 import InputText from "./InputText";
+import { signIn, logOut, ERROR_CODE } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
 
 export default function SignInForm() {
+  const [error, setError] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [state, dispatch] = useContext(StoreContext);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //* Handle Sign In  Error
+    let handleError = (error) => {
+      if (error === ERROR_CODE.INVALID_EMAIL) {
+        setError("Invalid Email");
+      }
+      if (error === ERROR_CODE.WRONG_PASSWORD) {
+        setError("Wrong password");
+      }
+    };
+    //* Handle Sign In Success
+    let handleSuccess = (user) => {
+      setEmail("");
+      setPassword("");
+      setError("");
+    };
+
+    signIn(email, password, handleSuccess, handleError);
+  };
+
   return (
-    <form className="sign-in-form" onSubmit={() => {}}>
+    <form className="sign-in-form" onSubmit={handleSubmit}>
       <div className="sign-in-form__head">Login</div>
+      <p className="error">{error}</p>
       <div className="email-field field">
         <InputText text={email} setText={setEmail} placeholder="Email" />
       </div>
@@ -29,17 +54,7 @@ export default function SignInForm() {
       <hr />
       <div className="sign-in-form__foot">
         <p>Or Sign in with</p>
-        <div className="auth">
-          <div className="btn-facebook btn-icon">
-            <Icon src="facebook.png" alt="facebook" />
-          </div>
-          <div className="btn-google btn-icon">
-            <Icon src="google.png" alt="google" />
-          </div>
-          <div className="btn-github btn-icon">
-            <Icon src="github.png" alt="github" />
-          </div>
-        </div>
+        <AuthSection />
         <h3 className="sign-up-cta">
           New to Animidle?{" "}
           <span

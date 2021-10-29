@@ -24,6 +24,9 @@
                 font-weight: bold;
                 margin-bottom: 5rem;
             }
+            .error {
+                color: $error-color;
+            }
             .field {
                 margin-bottom: 3rem;
                 input {

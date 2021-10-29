@@ -1,20 +1,80 @@
 import React, { useState, useContext } from "react";
-import Icon from "./Icon";
+import AuthSection from "./AuthSection";
 import InputText from "./InputText";
+import { validateEmail, validatePassword } from "../libs/mixin";
+import { createUser, ERROR_CODE } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
 
 export default function SignUpForm() {
+  const [error, setError] = useState("");
+
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+
   const [rePassword, setRePassword] = useState("");
+  const [rePasswordError, setRePasswordError] = useState(false);
 
   const [state, dispatch] = useContext(StoreContext);
 
+  const validate = () => {
+    //* Email validate
+    if (!validateEmail(email)) {
+      setEmailError(true);
+      return false;
+    }
+    //* Password validate
+    if (!validatePassword(password)) {
+      setPasswordError(true);
+      return false;
+    }
+    //* Repassword validate
+    if (password !== rePassword) {
+      setRePasswordError(true);
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //* Handle Sign up success
+    const handleSuccess = (user) => {
+      // set errors to false
+      setPasswordError(false);
+      setEmailError(false);
+      setRePasswordError(false);
+      // clear all field
+      setPassword("");
+      setEmail("");
+      setRePassword("");
+    };
+
+    //* Handle Sign up Error
+    const handleError = (error) => {
+      if (error === ERROR_CODE.EMAIL_ALREADY_EXISTS) {
+        setError("Email already in use!");
+      }
+    };
+
+    if (validate()) {
+      createUser(email, password, handleSuccess, handleError);
+    }
+  };
+
   return (
-    <form className="sign-up-form" onSubmit={() => {}}>
+    <form className="sign-up-form" onSubmit={handleSubmit}>
       <div className="sign-up-form__head">Sign Up</div>
+      <div className="error">{error}</div>
       <div className="email-field field">
         <InputText text={email} setText={setEmail} placeholder="Email" />
+        {emailError && (
+          <div className="email-error error">Email is not valid</div>
+        )}
       </div>
       <div className="password-field field">
         <InputText
@@ -23,6 +83,11 @@ export default function SignUpForm() {
           placeholder="Password"
           type="password"
         />
+        {passwordError && (
+          <div className="password-error error">
+            At least 8 characters required!
+          </div>
+        )}{" "}
       </div>
       <div className="repassword-field field">
         <InputText
@@ -31,6 +96,9 @@ export default function SignUpForm() {
           placeholder="Retype Your Password"
           type="password"
         />
+        {rePasswordError && (
+          <div className="repassword-error error">Not match password!</div>
+        )}
       </div>
       <button type="submit" className="btn-submit">
         Sign Up
@@ -38,17 +106,7 @@ export default function SignUpForm() {
       <hr />
       <div className="sign-in-form__foot">
         <p>Or Sign in with</p>
-        <div className="auth">
-          <div className="btn-facebook btn-icon">
-            <Icon src="facebook.png" alt="facebook" />
-          </div>
-          <div className="btn-google btn-icon">
-            <Icon src="google.png" alt="google" />
-          </div>
-          <div className="btn-github btn-icon">
-            <Icon src="github.png" alt="github" />
-          </div>
-        </div>
+        <AuthSection />
         <h3 className="sign-up-cta">
           Already have account{" "}
           <span

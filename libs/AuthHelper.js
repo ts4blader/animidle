@@ -1,46 +1,69 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
   GithubAuthProvider,
+  signOut,
 } from "firebase/auth";
 
-const auth = getAuth();
+export const ERROR_CODE = {
+  INVALID_EMAIL: "auth/invalid-email",
+  WRONG_PASSWORD: "auth/wrong-password",
+  EMAIL_ALREADY_EXISTS: "auth/email-already-in-use",
+};
+
+export const auth = getAuth();
 const google = new GoogleAuthProvider();
 const github = new GithubAuthProvider();
 const facebook = new FacebookAuthProvider();
 
-export const createUser = (email, password) => {
+export const authChange = (handleLogedIn, handleLogedOut) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      handleLogedIn(user);
+    } else {
+      handleLogedOut(user);
+    }
+  });
+};
+
+export const createUser = (email, password, handleSuccess, handleError) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      return user;
+      handleSuccess(userCredential.user);
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return error;
+      handleError(error.code);
     });
 };
 
-export const signIn = (email, password) => {
+export const signIn = (email, password, handleSuccess, handleError) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
-      const user = userCredential.user;
-      return user;
+      handleSuccess(userCredential.user);
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return error;
+      handleError(error.code);
     });
 };
 
-const signInGoogle = () => {
+export const logOut = () => {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log("log out");
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
+};
+
+export const signInGoogle = () => {
   signInWithPopup(auth, google)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -61,7 +84,8 @@ const signInGoogle = () => {
       // ...
     });
 };
-const signInFacebook = () => {
+
+export const signInFacebook = () => {
   signInWithPopup(auth, facebook)
     .then((result) => {
       // The signed-in user info.
@@ -85,7 +109,8 @@ const signInFacebook = () => {
       // ...
     });
 };
-const signInGithub = () => {
+
+export const signInGithub = () => {
   signInWithPopup(auth, github)
     .then((result) => {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.

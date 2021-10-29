@@ -1,16 +1,18 @@
 .input-text {
     position: relative;
     flex-grow: 1;
+    &[data-hangIn="true"] {
+        .placeholder {
+            top: 20%;
+            font-size: 0.6em;
+        }
+    }
     input {
         border: none;
         padding-left: $left-padding;
         font-size: 1em;
         width: 100%;
         height: 100%;
-        &:focus + .placeholder {
-            top: 20%;
-            font-size: 0.6em;
-        }
     }
     .placeholder {
         pointer-events: none;
