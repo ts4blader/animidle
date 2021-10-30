@@ -3,6 +3,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+    z-index: $float-layer;
     @include flex(space-between, center);
     padding: 2rem 5rem;
     .logo {
