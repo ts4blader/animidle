@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import AuthSection from "./AuthSection";
 import InputText from "./InputText";
-import { signIn, logOut, ERROR_CODE } from "../libs/AuthHelper";
+import { signIn, ERROR_CODE } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
 import { useRouter } from "next/router";
 
@@ -17,6 +17,15 @@ export default function SignInForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //* Handle Sign In Success
+    let handleSuccess = (user) => {
+      setEmail("");
+      setPassword("");
+      setError("");
+      router.push("/browse");
+    };
+
     //* Handle Sign In  Error
     let handleError = (error) => {
       if (error === ERROR_CODE.INVALID_EMAIL) {
@@ -25,13 +34,6 @@ export default function SignInForm() {
       if (error === ERROR_CODE.WRONG_PASSWORD) {
         setError("Wrong password!");
       }
-    };
-    //* Handle Sign In Success
-    let handleSuccess = (user) => {
-      setEmail("");
-      setPassword("");
-      setError("");
-      router.push("/browse");
     };
 
     signIn(email, password, handleSuccess, handleError);

@@ -4,8 +4,11 @@ import InputText from "./InputText";
 import { validateEmail, validatePassword } from "../libs/mixin";
 import { createUser, ERROR_CODE } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
+import router from "next/router";
 
 export default function SignUpForm() {
+  const router = useRouter();
+
   const [error, setError] = useState("");
 
   const [email, setEmail] = useState("");
@@ -52,6 +55,8 @@ export default function SignUpForm() {
       setPassword("");
       setEmail("");
       setRePassword("");
+
+      router.push("/browse");
     };
 
     //* Handle Sign up Error
