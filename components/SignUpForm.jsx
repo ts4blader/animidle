@@ -69,7 +69,7 @@ export default function SignUpForm() {
   return (
     <form className="sign-up-form" onSubmit={handleSubmit}>
       <div className="sign-up-form__head">Sign Up</div>
-      <div className="error">{error}</div>
+      {error && <div className="error">{error}</div>}
       <div className="email-field field">
         <InputText text={email} setText={setEmail} placeholder="Email" />
         {emailError && (

@@ -3,6 +3,7 @@ import Icon from "./Icon";
 import { validateEmail } from "../libs/mixin";
 
 export default function SubscribeForm() {
+  const [hangIn, setHangIn] = useState(false);
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -28,11 +29,15 @@ export default function SubscribeForm() {
         </p>
       </div>
       <form className="subscribe-form__body" onSubmit={handleSubmit}>
-        <div className="input-text">
+        <div className="input-text" data-hangIn={hangIn}>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onFocus={() => setHangIn(true)}
+            onBlur={() => {
+              if (email.length == 0) setHangIn(false);
+            }}
           />
           <p className="placeholder">Email</p>
         </div>
