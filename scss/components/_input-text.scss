@@ -1,7 +1,7 @@
 .input-text {
     position: relative;
     flex-grow: 1;
-    &[data-hangIn="true"] {
+    &[data-hangin="true"] {
         .placeholder {
             top: 20%;
             font-size: 0.6em;

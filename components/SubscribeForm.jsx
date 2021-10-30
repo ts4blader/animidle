@@ -29,7 +29,7 @@ export default function SubscribeForm() {
         </p>
       </div>
       <form className="subscribe-form__body" onSubmit={handleSubmit}>
-        <div className="input-text" data-hangIn={hangIn}>
+        <div className="input-text" data-hangin={hangIn}>
           <input
             type="text"
             value={email}

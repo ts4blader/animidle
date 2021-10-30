@@ -15,7 +15,7 @@ export default function InputText({
   }, [text]);
 
   return (
-    <div className="input-text" data-hangIn={hangIn}>
+    <div className="input-text" data-hangin={hangIn}>
       <input
         type={type}
         value={text}
