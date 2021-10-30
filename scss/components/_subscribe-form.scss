@@ -13,7 +13,20 @@ $left-padding: 2rem;
             font-weight: bold;
             top: 110%;
             left: 0;
-            color: $error-color;
+            color: $white-color;
+            padding: 1.5rem;
+            background: $error-color;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 10%;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 5px 6px 5px;
+                border-color: transparent transparent $error-color transparent;
+            }
         }
         .cta-btn {
             all: unset;

@@ -46,7 +46,7 @@ export default function SubscribeForm() {
           <Icon src="caret.png" alt="arrow" />
         </button>
 
-        <p className="error-mes">{errorMessage}</p>
+        {errorMessage && <p className="error-mes">{errorMessage}</p>}
       </form>
     </div>
   );
