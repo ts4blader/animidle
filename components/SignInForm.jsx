@@ -17,10 +17,10 @@ export default function SignInForm() {
     //* Handle Sign In  Error
     let handleError = (error) => {
       if (error === ERROR_CODE.INVALID_EMAIL) {
-        setError("Invalid Email");
+        setError("Invalid Email!");
       }
       if (error === ERROR_CODE.WRONG_PASSWORD) {
-        setError("Wrong password");
+        setError("Wrong password!");
       }
     };
     //* Handle Sign In Success
@@ -36,7 +36,7 @@ export default function SignInForm() {
   return (
     <form className="sign-in-form" onSubmit={handleSubmit}>
       <div className="sign-in-form__head">Login</div>
-      <p className="error">{error}</p>
+      {error && <p className="error-message">{error}</p>}
       <div className="email-field field">
         <InputText text={email} setText={setEmail} placeholder="Email" />
       </div>
