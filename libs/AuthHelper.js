@@ -7,6 +7,7 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 export const ERROR_CODE = {

@@ -3,8 +3,11 @@ import AuthSection from "./AuthSection";
 import InputText from "./InputText";
 import { signIn, logOut, ERROR_CODE } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
+import { useRouter } from "next/router";
 
 export default function SignInForm() {
+  const router = useRouter();
+
   const [error, setError] = useState("");
 
   const [email, setEmail] = useState("");
@@ -28,6 +31,7 @@ export default function SignInForm() {
       setEmail("");
       setPassword("");
       setError("");
+      router.push("/browse");
     };
 
     signIn(email, password, handleSuccess, handleError);
