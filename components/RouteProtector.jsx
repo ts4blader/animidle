@@ -11,7 +11,7 @@ export default function RouteProtector({ loggedPath, unLoggedPath, message }) {
       router.push(loggedPath === undefined ? router.pathname : loggedPath);
     } else {
       router.push(unLoggedPath === undefined ? router.pathname : unLoggedPath);
-      alert(message);
+      message ? alert(message) : "";
     }
   }, [user]);
 

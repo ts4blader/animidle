@@ -11,12 +11,15 @@ function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("authUser")));
     authChange(
       (user) => {
         setUser(user);
+        localStorage.setItem("authUser", JSON.stringify(user));
       },
       () => {
         setUser(null);
+        localStorage.removeItem("authUser");
       }
     );
   }, []);
