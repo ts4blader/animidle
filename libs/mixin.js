@@ -12,3 +12,7 @@ export const validatePassword = (password) => {
 export const replaceAll = (str, replaceStr, replaceWith) => {
   return str.split(replaceStr).join(replaceWith);
 };
+
+export const selectionFilter = (data, filterString) => {
+  return data.filter((item) => item.genres[0] === filterString);
+};
