@@ -4,7 +4,7 @@ import InputText from "./InputText";
 import { validateEmail, validatePassword } from "../libs/mixin";
 import { createUser, ERROR_CODE } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 export default function SignUpForm() {
   const router = useRouter();
