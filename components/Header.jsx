@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Icon from "./Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { auth } from "../libs/AuthHelper";
+import { AuthContext } from "../pages/_app";
+import { logOut } from "../libs/AuthHelper";
 
 const SignIn = () => {
   return (
@@ -15,19 +16,28 @@ const SignIn = () => {
 };
 
 const UserPanel = ({ authUser }) => {
+  const [show, setShow] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <div className="user-panel">
-      <div className="search-bar">
-        <Icon src="search.png" alt="" />
-        <input type="text" />
+      <div className="search-box" data-show={show}>
+        <Icon src="search.png" alt="" onClick={() => setShow(!show)} />
+        <input
+          type="text"
+          placeholder="Films name"
+          onBlur={() => setShow(false)}
+        />
       </div>
-      <div className="user-dropdown">
-        <div className="agent">
+      <div className="user-dropdown" data-show-dropdown={showDropdown}>
+        <div className="agent" onClick={() => setShowDropdown(!showDropdown)}>
           <Icon src={`user-${authUser.photoURL}.png`} alt="avatar" />
         </div>
         <div className="dropdown-items">
           <div className="item">{authUser.email}</div>
-          <div className="item">Sign out</div>
+          <div className="item" onClick={() => logOut()}>
+            Sign out
+          </div>
         </div>
       </div>
     </div>
@@ -37,7 +47,7 @@ const UserPanel = ({ authUser }) => {
 export default function Header() {
   const [right, setRight] = useState(<SignIn />);
   const router = useRouter();
-  const authUser = auth.currentUser || {};
+  const authUser = useContext(AuthContext) || {};
 
   useEffect(() => {
     if (router.pathname === "/browse") {

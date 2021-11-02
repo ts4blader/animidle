@@ -10,10 +10,7 @@ export default function Browse() {
     <>
       {/* Meta */}
       <MyHead title="Browse Page - Animidle" />
-      <RouteProtector
-        unLoggedPath="/signin"
-        message="You must loged in to browse this page"
-      />
+      <RouteProtector loggedPath="/browse" unLoggedPath="/signin" />
       {/* Content */}
       <div className="browse-page">
         <Hero align="start" bg="megumin.jpg">

@@ -8,6 +8,7 @@ import {
   GithubAuthProvider,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 
 export const ERROR_CODE = {
@@ -31,7 +32,22 @@ export const authChange = (handleLogedIn, handleLogedOut) => {
   });
 };
 
-export const createUser = (email, password, handleSuccess, handleError) => {
+export const updateUser = (user, handleSuccess) => {
+  updateProfile(user, {
+    photoURL: Math.floor(Math.random() * 5 + 1),
+  })
+    .then(() => {
+      handleSuccess();
+      console.log("Profile updated!");
+    })
+    .catch((error) => {
+      // An error occurred
+      // ...
+      console.log(error);
+    });
+};
+
+export const signUp = (email, password, handleSuccess, handleError) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       handleSuccess(userCredential.user);

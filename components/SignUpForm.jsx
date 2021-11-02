@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthSection from "./AuthSection";
 import InputText from "./InputText";
 import { validateEmail, validatePassword } from "../libs/mixin";
-import { createUser, ERROR_CODE } from "../libs/AuthHelper";
+import { signUp, ERROR_CODE, updateUser } from "../libs/AuthHelper";
 import { StoreContext, ACTION } from "../store/Store";
 import { useRouter } from "next/router";
 
@@ -47,16 +47,18 @@ export default function SignUpForm() {
 
     //* Handle Sign up success
     const handleSuccess = (user) => {
-      // set errors to false
-      setPasswordError(false);
-      setEmailError(false);
-      setRePasswordError(false);
-      // clear all field
-      setPassword("");
-      setEmail("");
-      setRePassword("");
+      updateUser(user, () => {
+        // set errors to false
+        setPasswordError(false);
+        setEmailError(false);
+        setRePasswordError(false);
+        // clear all field
+        setPassword("");
+        setEmail("");
+        setRePassword("");
 
-      router.push("/browse");
+        router.push("/browse");
+      });
     };
 
     //* Handle Sign up Error
@@ -67,7 +69,7 @@ export default function SignUpForm() {
     };
 
     if (validate()) {
-      createUser(email, password, handleSuccess, handleError);
+      signUp(email, password, handleSuccess, handleError);
     }
   };
 

@@ -17,9 +17,74 @@ header {
         padding: 1rem 2rem;
         border-radius: 0.3rem;
     }
+    .user-panel {
+        display: flex;
+        font-size: 2.5rem;
+        .search-box {
+            margin-right: 2rem;
+            display: flex;
+            align-items: center;
+            background: black;
+            &[data-show="false"] {
+                input {
+                    width: 0;
+                }
+            }
+            .icon {
+                cursor: pointer;
+                width: 2em;
+                @include flex();
+                img {
+                    width: 50%;
+                }
+            }
+            input {
+                transition: width 0.3s ease;
+                border: none;
+                background: black;
+                height: 100%;
+                color: white;
+                font-size: 0.7em;
+                width: 30rem;
+            }
+        }
+        .user-dropdown {
+            position: relative;
+            cursor: pointer;
+            &[data-show-dropdown="false"] .dropdown-items {
+                display: none;
+            }
+            .agent {
+                width: 2em;
+            }
+            .dropdown-items {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                .item {
+                    font-size: 0.8em;
+                    background: $black-color;
+                    cursor: pointer;
+                    padding: 1.5rem 3rem;
+                    &:hover {
+                        background: rgba($color: $white-color, $alpha: 0.2);
+                    }
+                }
+            }
+        }
+    }
 }
 @include responsive($break-point-xs) {
     header {
         padding: 2rem 3rem;
+        .user-panel {
+            font-size: 2rem;
+            .search-box {
+                input {
+                    font-size: 1em;
+                    width: 20rem;
+                }
+            }
+        }
     }
 }

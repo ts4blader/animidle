@@ -26,3 +26,34 @@
         }
     }
 }
+@include responsive($break-point-md) {
+    .browse-page {
+        .hero {
+            .content {
+                .title {
+                    font-size: 3em;
+                }
+                .subtitle {
+                    font-size: 1.2em;
+                    margin-bottom: 2em;
+                }
+                .cta {
+                    width: 30rem;
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+}
+@include responsive($break-point-xs) {
+    .browse-page {
+        .hero {
+            .content {
+                font-size: 1.5rem;
+                .cta {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+}

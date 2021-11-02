@@ -14,7 +14,7 @@ export default function SignIn() {
     <>
       {/* Head */}
       <MyHead title="Sign in page - Animidle" />
-      <RouteProtector loggedPath="/browse" />
+      <RouteProtector loggedPath="/browse" unLoggedPath="/signin" />
       <div className="sign-in-page">
         <Header />
         <section className="sign-in-page__content container">
