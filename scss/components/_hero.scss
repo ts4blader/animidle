@@ -1,13 +1,15 @@
 .hero {
     position: relative;
     height: 80vh;
-    background: url("/images/fate.jpg") no-repeat;
-    background-position: top center;
-    background-size: cover;
     @include flex();
-    text-align: center;
     font-size: 2rem;
-    &__content {
+    text-align: center;
+    &[data-content-align="start"] {
+        text-align: left;
+        padding: 0 5%;
+        justify-content: flex-start;
+    }
+    .content {
         max-width: 75rem;
         .title {
             font-size: 3em;
@@ -22,7 +24,7 @@
 }
 @include responsive($break-point-xs) {
     .hero {
-        &__content {
+        .content {
             .title {
                 font-size: 1.8em;
                 font-weight: bold;

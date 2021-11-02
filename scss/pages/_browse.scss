@@ -1,0 +1,28 @@
+.browse-page {
+    .hero {
+        .content {
+            max-width: 90rem;
+            .title {
+                font-size: 2.7em;
+            }
+            .subtitle {
+                font-size: 1em;
+                line-height: 1.5;
+                margin-bottom: 1.5em;
+            }
+            .cta {
+                cursor: pointer;
+                background: $white-color;
+                color: $black-color;
+                width: 20rem;
+                text-align: center;
+                padding: 1.5rem 3rem;
+                font-weight: bold;
+                &:hover {
+                    background: $main-color;
+                    color: $white-color;
+                }
+            }
+        }
+    }
+}

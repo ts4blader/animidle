@@ -1,17 +1,50 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "./Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { StoreContext, ACTION } from "../store/Store";
+import { auth } from "../libs/AuthHelper";
+
+const SignIn = () => {
+  return (
+    <Link href="/signin">
+      <a>
+        <div className="btn sign-in">Sign in</div>
+      </a>
+    </Link>
+  );
+};
+
+const UserPanel = ({ authUser }) => {
+  return (
+    <div className="user-panel">
+      <div className="search-bar">
+        <Icon src="search.png" alt="" />
+        <input type="text" />
+      </div>
+      <div className="user-dropdown">
+        <div className="agent">
+          <Icon src={`user-${authUser.photoURL}.png`} alt="avatar" />
+        </div>
+        <div className="dropdown-items">
+          <div className="item">{authUser.email}</div>
+          <div className="item">Sign out</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function Header() {
-  const [signin, setSignIn] = useState(false);
+  const [right, setRight] = useState(<SignIn />);
   const router = useRouter();
-  const [state, dispatch] = useContext(StoreContext);
+  const authUser = auth.currentUser || {};
 
   useEffect(() => {
+    if (router.pathname === "/browse") {
+      setRight(<UserPanel authUser={authUser} />);
+    }
     if (router.pathname === "/signin") {
-      setSignIn(true);
+      setRight("");
     }
   }, [router.pathname]);
 
@@ -24,25 +57,7 @@ export default function Header() {
           </a>
         </Link>
       </div>
-      {!signin && (
-        <Link href="/signin">
-          <a>
-            <div className="btn sign-in">Sign in</div>
-          </a>
-        </Link>
-      )}
-      {signin && (
-        <a>
-          <div
-            className="btn sign-in mode-switch"
-            onClick={() => {
-              dispatch({ type: ACTION.TOGGLE_SIGNUP_FORM });
-            }}
-          >
-            {state.showSignUpForm ? "Sign in" : "Sign up"}
-          </div>
-        </a>
-      )}
+      {right}
     </header>
   );
 }

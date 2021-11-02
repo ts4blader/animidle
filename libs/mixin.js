@@ -14,5 +14,11 @@ export const replaceAll = (str, replaceStr, replaceWith) => {
 };
 
 export const selectionFilter = (data, filterString) => {
-  return data.filter((item) => item.genres[0] === filterString);
+  let getGenre = (length) => {
+    return Math.floor(Math.random() * length);
+  };
+
+  return data.filter(
+    (item) => item.genres[getGenre(item.genres.length)] === filterString
+  );
 };
