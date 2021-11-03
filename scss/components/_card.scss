@@ -1,0 +1,32 @@
+.card {
+    cursor: pointer;
+    position: relative;
+    font-size: 2rem;
+    max-width: 30rem;
+    overflow: hidden;
+    &:hover {
+        .overlay {
+            display: block;
+        }
+        .title {
+            transform: translateY(0);
+        }
+    }
+    .overlay {
+        display: none;
+        position: absolute;
+        @include size(100%);
+        top: 0;
+        left: 0;
+        background: rgba($color: #000000, $alpha: 0.5);
+    }
+    .title {
+        position: absolute;
+        transition: transform 200ms ease;
+        transform: translateY(10rem);
+        left: 2rem;
+        bottom: 2rem;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+}
