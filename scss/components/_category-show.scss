@@ -1,0 +1,35 @@
+.category-show {
+    padding: 0 5%;
+    font-size: 2rem;
+    margin-top: 10vh;
+    h3.title {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+    .slide {
+        .splide__pagination {
+            display: none;
+        }
+        .splide__arrow {
+            background: $main-color;
+            opacity: 1;
+            border-radius: 0;
+            @include size(3em);
+            svg {
+                fill: white;
+            }
+            &--next {
+                right: 0;
+                transform: translate(50%, -50%);
+            }
+            &--prev {
+                left: 0;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .card {
+            max-width: unset;
+        }
+    }
+}
