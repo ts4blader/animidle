@@ -13,12 +13,19 @@ export const replaceAll = (str, replaceStr, replaceWith) => {
   return str.split(replaceStr).join(replaceWith);
 };
 
-export const selectionFilter = (data, filterString) => {
+export const genreReplace = (data) => {
   let getGenre = (length) => {
     return Math.floor(Math.random() * length);
   };
+  let result = [];
 
-  return data.filter(
-    (item) => item.genres[getGenre(item.genres.length)] === filterString
-  );
+  data.forEach((item) => {
+    result.push({ ...item, genre: item.genres[getGenre(item.genres.length)] });
+  });
+
+  return result;
+};
+
+export const selectionFilter = (data, filterString) => {
+  return data.filter((item) => item.genre === filterString);
 };
