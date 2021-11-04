@@ -1,0 +1,53 @@
+.screen {
+    position: relative;
+    font-size: 2rem;
+    padding: 0 5%;
+    margin: 1rem 0;
+    height: 50vh;
+    z-index: 1;
+    @include flex();
+    .close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 3rem;
+        width: 2em;
+        cursor: pointer;
+    }
+    .overlay {
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(90deg, #000000 0%, rgba(255, 255, 255, 0) 100%);
+    }
+    &__text {
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        .description {
+            line-height: 1.5;
+            font-size: 1em;
+            width: 60%;
+            height: 12rem;
+            overflow: hidden;
+            white-space: pre-line;
+            margin-bottom: 2em;
+        }
+        .btn {
+            cursor: pointer;
+            background: $white-color;
+            text-align: center;
+            color: #000;
+            max-width: 20rem;
+            padding: 1rem 2rem;
+            &:hover {
+                background: $main-color;
+                color: $white-color;
+            }
+        }
+    }
+}

@@ -1,11 +1,14 @@
 import React from "react";
-import Link from "next/link";
-import { logOut } from "../libs/AuthHelper";
 import RouteProtector from "../components/RouteProtector";
 import MyHead from "../components/MyHead";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import CategoryShow from "../components/CategoryShow";
+import useFilmsData from "../libs/useFilmsData";
 
 export default function Browse() {
+  const { films } = useFilmsData();
+
   return (
     <>
       {/* Meta */}
@@ -26,9 +29,16 @@ export default function Browse() {
             <div className="cta btn">Play</div>
           </div>
         </Hero>
-        <Link href="/">Home</Link>
-        <p onClick={() => logOut()}>Log Out</p>
+
+        <div className="categories-show">
+          {films.map((item, index) => {
+            return <CategoryShow content={item} key={index} />;
+          })}
+        </div>
       </div>
+
+      <div className="divider"></div>
+      <Footer />
     </>
   );
 }

@@ -25,6 +25,9 @@
             }
         }
     }
+    .categories-show {
+        margin-bottom: 10vh;
+    }
 }
 @include responsive($break-point-md) {
     .browse-page {

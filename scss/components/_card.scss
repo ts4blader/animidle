@@ -10,6 +10,7 @@
         }
         .title {
             transform: translateY(0);
+            opacity: 1;
         }
     }
     .overlay {
@@ -22,8 +23,9 @@
     }
     .title {
         position: absolute;
-        transition: transform 200ms ease;
-        transform: translateY(10rem);
+        transition: all 200ms ease;
+        transform: translateY(100%);
+        opacity: 0;
         left: 2rem;
         bottom: 2rem;
         font-weight: bold;

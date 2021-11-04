@@ -3,7 +3,7 @@ import Card from "./Card";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
-export default function Slide({ content = [] }) {
+export default function Slide({ content = [], setItem }) {
   return (
     <Splide
       className="slide"
@@ -21,7 +21,7 @@ export default function Slide({ content = [] }) {
       {content.map((item, index) => {
         return (
           <SplideSlide key={index}>
-            <Card content={item} />
+            <Card content={item} onClick={() => setItem(content[index])} />
           </SplideSlide>
         );
       })}
