@@ -3,9 +3,14 @@
     font-size: 2rem;
     padding: 0 5%;
     margin: 1rem 0;
-    height: 50vh;
     z-index: 1;
+    overflow: hidden;
+    height: 0;
     @include flex();
+    transition: 0.3s ease;
+    &[data-show="true"] {
+        height: 50vh;
+    }
     .close-btn {
         position: absolute;
         top: 2rem;

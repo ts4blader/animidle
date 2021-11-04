@@ -16,7 +16,7 @@ export default function Screen({ content, setItem }) {
     backgroundPosition: "center center",
   };
   return (
-    <div className="screen" style={style}>
+    <div className="screen" style={style} data-show={content ? true : false}>
       <div className="close-btn">
         <Icon src="close.png" alt="Close" onClick={() => setItem(null)} />
       </div>
