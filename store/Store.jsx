@@ -5,12 +5,14 @@ export const StoreContext = createContext(null);
 // Initial state
 const INITIAL_STATE = {
   showSignUpForm: false,
+  searchTerm: "",
 };
 //Action
 export const ACTION = {
   SHOW_SIGNUP_FORM: "SHOW_SIGNUP_FORM",
   HIDE_SIGNUP_FORM: "HIDE_SIGNUP_FORM",
   TOGGLE_SIGNUP_FORM: "TOGGLE_SIGNUP_FORM",
+  SET_SEARCH_TERM: "SET_SEARCH_TERM",
 };
 
 export default function Store({ children }) {

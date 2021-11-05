@@ -8,6 +8,8 @@ const reducer = (state, action) => {
       return { ...state, showSignUpForm: false };
     case ACTION.TOGGLE_SIGNUP_FORM:
       return { ...state, showSignUpForm: !state.showSignUpForm };
+    case ACTION.SET_SEARCH_TERM:
+      return { ...state, searchTerm: action.payload };
     default:
       alert("Something went wrong! Not in action");
       return state;
