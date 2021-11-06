@@ -10,26 +10,32 @@ export default function Slide({ content = [], setItem, setShowScreen }) {
   };
 
   return (
-    <Splide
-      className="slide"
-      options={{
-        rewind: true,
-        gap: "1rem",
-        perPage: 5,
-        perMove: 1,
-        autoplay: true,
-        interval: 10000,
-        pauseOnHover: true,
-        isNavigation: false,
-      }}
-    >
-      {content.map((item, index) => {
-        return (
-          <SplideSlide key={index}>
-            <Card content={item} onClick={() => handleClick(index)} />
-          </SplideSlide>
-        );
-      })}
-    </Splide>
+    <>
+      <Splide
+        className="slide"
+        options={{
+          rewind: true,
+          gap: "1rem",
+          perPage: 5,
+          perMove: 1,
+          autoplay: true,
+          interval: 10000,
+          pauseOnHover: true,
+          isNavigation: false,
+        }}
+      >
+        {content.length === 0 ? (
+          <p className="no-result">No result!</p>
+        ) : (
+          content.map((item, index) => {
+            return (
+              <SplideSlide key={index}>
+                <Card content={item} onClick={() => handleClick(index)} />
+              </SplideSlide>
+            );
+          })
+        )}
+      </Splide>
+    </>
   );
 }

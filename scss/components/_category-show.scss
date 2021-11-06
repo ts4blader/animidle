@@ -31,5 +31,11 @@
         .card {
             max-width: unset;
         }
+        .no-result {
+            width: 100%;
+            font-size: 1.2em;
+            color: $main-color;
+            text-align: center;
+        }
     }
 }
