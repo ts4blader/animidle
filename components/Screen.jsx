@@ -23,7 +23,7 @@ export default function Screen({ content, setItem }) {
       <div className="screen__text">
         <h4 className="title">{title}</h4>
         <p className="description">{description}</p>
-        <div className="btn play-btn">Play</div>
+        <div className="btn">Play</div>
       </div>
     </div>
   );

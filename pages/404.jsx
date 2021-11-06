@@ -17,7 +17,7 @@ export default function NotFound() {
           Sorry, we can not find that page. You will find lots to explore on our
           homepage
         </p>
-        <div className="cta-btn">
+        <div className="cta-btn btn">
           <Link href="/">
             <a>
               <Icon src="caret.png" alt="caret" />

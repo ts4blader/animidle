@@ -10,12 +10,10 @@ header {
         width: 5rem;
     }
     .btn {
-        cursor: pointer;
-        background: $main-color;
         text-transform: capitalize;
-        font-weight: 600;
         padding: 1rem 2rem;
         border-radius: 0.3rem;
+        font-weight: bold;
     }
     .user-panel {
         display: flex;
