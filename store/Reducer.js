@@ -14,11 +14,6 @@ const reducer = (state, action) => {
       return { ...state, showPlayer: true };
     case ACTION.HIDE_PLAYER:
       return { ...state, showPlayer: false };
-    // Screen
-    case ACTION.SHOW_SCREEN:
-      return { ...state, showScreen: true };
-    case ACTION.HIDE_SCREEN:
-      return { ...state, showScreen: false };
     // Search Term
     case ACTION.SET_SEARCH_TERM:
       return { ...state, searchTerm: action.payload };

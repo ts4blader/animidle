@@ -2,14 +2,11 @@ import React, { useContext } from "react";
 import Card from "./Card";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { StoreContext, ACTION } from "../store/Store";
 
-export default function Slide({ content = [], setItem }) {
-  const [state, dispatch] = useContext(StoreContext);
-
+export default function Slide({ content = [], setItem, setShowScreen }) {
   const handleClick = (index) => {
-    dispatch({ type: ACTION.SHOW_SCREEN });
     setItem(content[index]);
+    setShowScreen(true);
   };
 
   return (

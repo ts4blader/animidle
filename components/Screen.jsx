@@ -4,23 +4,22 @@ import { StoreContext, ACTION } from "../store/Store";
 
 Screen.defaultProps = {
   content: {},
-  setItem: () => {},
+  showScreen: false,
+  setShowScreen: () => {},
 };
 
-export default function Screen({ content }) {
+export default function Screen({ content, showScreen, setShowScreen }) {
   const { thumbnail, title, description, duration, episode } = content || "";
   const [state, dispatch] = useContext(StoreContext);
+
   const style = {
     backgroundImage: `url(${thumbnail})`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
   };
   return (
-    <div className="screen" style={style} data-show={state.showScreen}>
-      <div
-        className="close-btn"
-        onClick={() => dispatch({ type: ACTION.HIDE_SCREEN })}
-      >
+    <div className="screen" style={style} data-show={showScreen}>
+      <div className="close-btn" onClick={() => setShowScreen(false)}>
         <Icon src="close.png" alt="Close" />
       </div>
       <div className="overlay"></div>

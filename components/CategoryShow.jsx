@@ -8,6 +8,7 @@ export default function CategoryShow({ content }) {
   const { title, data } = content;
   const [slideData, setSlideData] = useState([]);
   const [item, setItem] = useState(null);
+  const [showScreen, setShowScreen] = useState(false);
   const [state, dispatch] = useContext(StoreContext);
 
   useEffect(() => {
@@ -30,8 +31,16 @@ export default function CategoryShow({ content }) {
   return (
     <div className="category-show">
       <h3 className="title">{title}</h3>
-      <Slide content={slideData} setItem={setItem} />
-      <Screen content={item} />
+      <Slide
+        content={slideData}
+        setItem={setItem}
+        setShowScreen={setShowScreen}
+      />
+      <Screen
+        content={item}
+        showScreen={showScreen}
+        setShowScreen={setShowScreen}
+      />
     </div>
   );
 }
