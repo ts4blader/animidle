@@ -41,6 +41,7 @@ const UserPanel = ({ authUser }) => {
           ? ReacDOM.createPortal(
               <div
                 className="overlay"
+                style={{ zIndex: 4 }}
                 onClick={() => setShowDropdown(false)}
               ></div>,
               document.body
