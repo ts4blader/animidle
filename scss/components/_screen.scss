@@ -15,8 +15,13 @@
         position: absolute;
         top: 2rem;
         right: 3rem;
-        width: 2em;
+        @include size(2em);
         cursor: pointer;
+        background: $main-color;
+        @include flex();
+        .icon {
+            width: 50%;
+        }
     }
     .overlay {
         z-index: -1;
