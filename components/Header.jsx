@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReacDOM from "react-dom";
-import Icon from "./Icon";
 import Link from "next/link";
+import Icon from "./Icon";
 import { useRouter } from "next/router";
 import { AuthContext } from "../pages/_app";
 import { logOut } from "../libs/FirebaseHelper";
@@ -48,7 +48,7 @@ const UserPanel = ({ authUser }) => {
             )
           : null}
         <div className="agent" onClick={() => setShowDropdown(!showDropdown)}>
-          <Icon src={`user-${authUser.photoURL}.png`} alt="avatar" />
+          <img src={authUser.photoURL} alt="avatar" />
         </div>
         <div className="dropdown-items">
           <div className="item">{authUser.email}</div>

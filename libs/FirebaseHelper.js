@@ -54,7 +54,7 @@ export const authChange = (handleLogedIn, handleLogedOut) => {
 
 export const updateUser = (user, handleSuccess) => {
   updateProfile(user, {
-    photoURL: Math.floor(Math.random() * 5 + 1),
+    photoURL: "/icons/user-" + Math.floor(Math.random() * 5 + 1) + ".png",
   })
     .then(() => {
       handleSuccess();
@@ -108,6 +108,7 @@ export const signInGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      console.log(user);
       // ...
     })
     .catch((error) => {
