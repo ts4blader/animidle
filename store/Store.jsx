@@ -8,8 +8,6 @@ const INITIAL_STATE = {
   showSignUpForm: false,
   searchTerm: "",
   firebase,
-  auth,
-  db,
 };
 //Action
 export const ACTION = {
