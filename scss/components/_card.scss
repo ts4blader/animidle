@@ -15,10 +15,7 @@
     }
     .overlay {
         display: none;
-        position: absolute;
-        @include size(100%);
-        top: 0;
-        left: 0;
+        z-index: $normal-layer;
         background: rgba($color: #000000, $alpha: 0.5);
     }
     .title {
@@ -30,5 +27,6 @@
         bottom: 2rem;
         font-weight: bold;
         font-size: 1.2em;
+        z-index: $normal-layer + 1;
     }
 }

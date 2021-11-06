@@ -16,8 +16,8 @@ export default function Screen({ content, setItem }) {
   };
   return (
     <div className="screen" style={style} data-show={content ? true : false}>
-      <div className="close-btn">
-        <Icon src="close.png" alt="Close" onClick={() => setItem(null)} />
+      <div className="close-btn" onClick={() => setItem(null)}>
+        <Icon src="close.png" alt="Close" />
       </div>
       <div className="overlay"></div>
       <div className="screen__text">
