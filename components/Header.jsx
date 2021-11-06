@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import ReacDOM from "react-dom";
 import Icon from "./Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -36,6 +37,15 @@ const UserPanel = ({ authUser }) => {
         />
       </div>
       <div className="user-dropdown" data-show-dropdown={showDropdown}>
+        {showDropdown
+          ? ReacDOM.createPortal(
+              <div
+                className="overlay"
+                onClick={() => setShowDropdown(false)}
+              ></div>,
+              document.body
+            )
+          : null}
         <div className="agent" onClick={() => setShowDropdown(!showDropdown)}>
           <Icon src={`user-${authUser.photoURL}.png`} alt="avatar" />
         </div>

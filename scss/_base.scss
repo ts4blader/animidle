@@ -25,6 +25,9 @@ body {
     color: $text-color;
     background: $bg-color;
     line-height: 1.25;
+    .overlay {
+        z-index: $float-layer - 1;
+    }
 }
 
 img {
