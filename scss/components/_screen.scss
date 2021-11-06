@@ -27,10 +27,21 @@
         background-image: linear-gradient(90deg, #000000 0%, rgba(255, 255, 255, 0) 100%);
     }
     &__text {
+        width: 100%;
         .title {
             font-size: 2em;
             font-weight: bold;
             margin-bottom: 0.5em;
+            position: relative;
+        }
+        .episode {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: max-content;
+            font-size: 0.8em;
+            background: $main-color;
+            padding: 0.5em 1em;
         }
         .description {
             line-height: 1.5;

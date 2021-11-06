@@ -1,6 +1,6 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer } from "react";
 import reducer from "./Reducer";
-import { firebase, auth, db } from "../libs/FirebaseHelper";
+import { firebase } from "../libs/FirebaseHelper";
 
 export const StoreContext = createContext(null);
 // Initial state
@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   searchTerm: "",
   firebase,
   showPlayer: false,
+  showScreen: false,
 };
 //Action
 export const ACTION = {
@@ -16,6 +17,8 @@ export const ACTION = {
   HIDE_SIGNUP_FORM: "HIDE_SIGNUP_FORM",
   SHOW_PLAYER: "SHOW_PLAYER",
   HIDE_PLAYER: "HIDE_PLAYER",
+  SHOW_SCREEN: "SHOW_SCREEN",
+  HIDE_SCREEN: "HIDE_SCREEN",
   TOGGLE_SIGNUP_FORM: "TOGGLE_SIGNUP_FORM",
   SET_SEARCH_TERM: "SET_SEARCH_TERM",
 };

@@ -31,7 +31,7 @@ export default function CategoryShow({ content }) {
     <div className="category-show">
       <h3 className="title">{title}</h3>
       <Slide content={slideData} setItem={setItem} />
-      <Screen content={item} setItem={setItem} />
+      <Screen content={item} />
     </div>
   );
 }
