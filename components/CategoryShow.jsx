@@ -18,13 +18,14 @@ export default function CategoryShow({ content }) {
     const fuse = new Fuse(data, {
       keys: ["title", "description"],
     });
-    if (state.searchTerm.length > 2) {
-      const result = fuse.search(state.searchTerm).map((item) => item);
+
+    if (state.searchTerm.length > 2 && data.length > 0) {
+      const result = fuse.search(state.searchTerm).map((item) => item.item);
       setSlideData(result);
     } else {
       setSlideData(data);
     }
-  }, [state.searchTerm]);
+  }, [state.searchTerm, data]);
 
   return (
     <div className="category-show">
