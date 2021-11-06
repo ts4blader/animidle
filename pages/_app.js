@@ -3,7 +3,7 @@ import "../scss/main.scss";
 import "../libs/FirebaseHelper";
 import Layout from "../components/Layout";
 import Store from "../store/Store";
-import { authChange } from "../libs/AuthHelper";
+import { authChange } from "../libs/FirebaseHelper";
 
 export const AuthContext = createContext(null);
 

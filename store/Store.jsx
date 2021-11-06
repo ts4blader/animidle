@@ -1,11 +1,15 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 import reducer from "./Reducer";
+import { firebase, auth, db } from "../libs/FirebaseHelper";
 
 export const StoreContext = createContext(null);
 // Initial state
 const INITIAL_STATE = {
   showSignUpForm: false,
   searchTerm: "",
+  firebase,
+  auth,
+  db,
 };
 //Action
 export const ACTION = {

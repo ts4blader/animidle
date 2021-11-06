@@ -1,6 +1,10 @@
 import React from "react";
 import Icon from "./Icon";
-import { signInGoogle, signInFacebook, signInGithub } from "../libs/AuthHelper";
+import {
+  signInGoogle,
+  signInFacebook,
+  signInGithub,
+} from "../libs/FirebaseHelper";
 
 export default function AuthSection() {
   return (

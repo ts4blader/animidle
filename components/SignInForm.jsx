@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import AuthSection from "./AuthSection";
 import InputText from "./InputText";
-import { signIn, ERROR_CODE } from "../libs/AuthHelper";
+import { signIn, ERROR_CODE } from "../libs/FirebaseHelper";
 import { StoreContext, ACTION } from "../store/Store";
 import { useRouter } from "next/router";
 

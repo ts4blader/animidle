@@ -3,7 +3,8 @@ import Icon from "./Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { AuthContext } from "../pages/_app";
-import { logOut } from "../libs/AuthHelper";
+import { logOut } from "../libs/FirebaseHelper";
+import { StoreContext, ACTION } from "../store/Store";
 
 const SignIn = () => {
   return (
@@ -18,6 +19,7 @@ const SignIn = () => {
 const UserPanel = ({ authUser }) => {
   const [show, setShow] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [state, dispatch] = useContext(StoreContext);
 
   return (
     <div className="user-panel">
@@ -26,6 +28,10 @@ const UserPanel = ({ authUser }) => {
         <input
           type="text"
           placeholder="Films name"
+          value={state.searchTerm}
+          onChange={(e) => {
+            dispatch({ type: ACTION.SET_SEARCH_TERM, payload: e.target.value });
+          }}
           onBlur={() => setShow(false)}
         />
       </div>
