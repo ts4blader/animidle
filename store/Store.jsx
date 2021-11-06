@@ -8,11 +8,14 @@ const INITIAL_STATE = {
   showSignUpForm: false,
   searchTerm: "",
   firebase,
+  showPlayer: false,
 };
 //Action
 export const ACTION = {
   SHOW_SIGNUP_FORM: "SHOW_SIGNUP_FORM",
   HIDE_SIGNUP_FORM: "HIDE_SIGNUP_FORM",
+  SHOW_PLAYER: "SHOW_PLAYER",
+  HIDE_PLAYER: "HIDE_PLAYER",
   TOGGLE_SIGNUP_FORM: "TOGGLE_SIGNUP_FORM",
   SET_SEARCH_TERM: "SET_SEARCH_TERM",
 };
