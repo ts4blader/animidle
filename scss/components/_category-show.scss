@@ -39,3 +39,14 @@
         }
     }
 }
+@include responsive($break-point-sm) {
+    .category-show {
+        font-size: 1.5rem;
+        margin-top: 5vh;
+        .slide {
+            .splide__arrow {
+                display: none;
+            }
+        }
+    }
+}
