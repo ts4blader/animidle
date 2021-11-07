@@ -23,6 +23,9 @@
         .sign-in-form,
         .sign-up-form {
             animation: slideIn 0.7s forwards 1 ease;
+            .error-message {
+                margin-bottom: 1.5rem;
+            }
             hr {
                 margin: 1.5rem 0;
             }
