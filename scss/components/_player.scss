@@ -6,14 +6,6 @@
     height: 100vh;
     @include flex();
     z-index: $modal-layer;
-    .overlay {
-        position: absolute;
-        @include size(100%);
-        top: 0;
-        left: 0;
-        z-index: -1;
-        background: rgba($color: #000000, $alpha: 0.2);
-    }
     &__text {
         font-size: 2rem;
         cursor: pointer;
@@ -22,8 +14,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background: #000;
-        width: 50%;
-        height: 60vh;
+        @include size(100%);
         @include flex(center, column);
         &[data-show="false"] {
             display: none;
