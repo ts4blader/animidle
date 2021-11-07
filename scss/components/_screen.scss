@@ -15,6 +15,7 @@
         position: absolute;
         top: 2rem;
         right: 3rem;
+        z-index: $float-layer;
         @include size(2em);
         cursor: pointer;
         background: $main-color;
@@ -60,6 +61,50 @@
             &:hover {
                 background: $main-color;
                 color: $white-color;
+            }
+        }
+    }
+}
+@include responsive($break-point-sm) {
+    .screen {
+        font-size: 1.8rem;
+        &[data-show="true"] {
+            height: 35vh;
+        }
+        .close-btn {
+            top: 3rem;
+            @include size(2.5em);
+        }
+        &__text {
+            .title {
+                font-size: 1.8em;
+                margin-bottom: 1rem;
+            }
+            .description {
+                height: 13rem;
+            }
+        }
+    }
+}
+@include responsive($break-point-xs) {
+    .screen {
+        font-size: 1.5rem;
+        .close-btn {
+            top: 1rem;
+            right: 1rem;
+        }
+        &__text {
+            .title {
+                font-size: 1.8em;
+                margin-bottom: 1rem;
+            }
+            .description {
+                width: 100%;
+                height: 9rem;
+                font-size: 1em;
+            }
+            .episode {
+                font-size: 1em;
             }
         }
     }
