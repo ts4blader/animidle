@@ -44,6 +44,11 @@ export const completeLoading = (soundPlay, screenWidth) => {
     opacity: 0,
     ease: "Expo.easeOut",
   });
+
+  tl.to(".loader", {
+    duration: 0,
+    display: "none",
+  });
 };
 
 const floatBG = () => {
