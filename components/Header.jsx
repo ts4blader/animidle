@@ -51,7 +51,9 @@ const UserPanel = ({ authUser }) => {
           <img src={authUser.photoURL} alt="avatar" />
         </div>
         <div className="dropdown-items">
-          <div className="item">{authUser.email}</div>
+          <div className="item">
+            {authUser.displayName ? authUser.displayName : authUser.email}
+          </div>
           <div className="item" onClick={() => logOut()}>
             Sign out
           </div>

@@ -61,6 +61,7 @@ header {
                 top: 100%;
                 right: 0;
                 .item {
+                    white-space: nowrap;
                     font-size: 0.8em;
                     background: $black-color;
                     cursor: pointer;
