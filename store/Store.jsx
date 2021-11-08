@@ -1,8 +1,8 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useContext } from "react";
 import reducer from "./Reducer";
 import { firebase } from "../libs/FirebaseHelper";
 
-export const StoreContext = createContext(null);
+const StoreContext = createContext(null);
 // Initial state
 const INITIAL_STATE = {
   showSignUpForm: false,
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   showPlayer: false,
 };
 //Action
-export const ACTION = {
+const ACTION = {
   SHOW_SIGNUP_FORM: "SHOW_SIGNUP_FORM",
   HIDE_SIGNUP_FORM: "HIDE_SIGNUP_FORM",
   SHOW_PLAYER: "SHOW_PLAYER",
@@ -20,7 +20,7 @@ export const ACTION = {
   SET_SEARCH_TERM: "SET_SEARCH_TERM",
 };
 
-export default function Store({ children }) {
+function Store({ children }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   return (
@@ -29,3 +29,7 @@ export default function Store({ children }) {
     </StoreContext.Provider>
   );
 }
+
+const useStore = () => useContext(StoreContext);
+
+export { ACTION, useStore, Store };

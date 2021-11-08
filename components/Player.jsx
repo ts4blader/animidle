@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { StoreContext, ACTION } from "../store/Store";
+import { useStore, ACTION } from "../store/Store";
 import Image from "../components/Image";
 
 export default function Player() {
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
   const [warning, setWarning] = useState(true);
   const close = () => {
     setWarning(true);

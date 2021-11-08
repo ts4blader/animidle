@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import Icon from "./Icon";
-import { StoreContext, ACTION } from "../store/Store";
+import { useStore, ACTION } from "../store/Store";
 
 Screen.defaultProps = {
   content: {},
@@ -10,7 +10,7 @@ Screen.defaultProps = {
 
 export default function Screen({ content, showScreen, setShowScreen }) {
   const { thumbnail, title, description, duration, episode } = content || "";
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
 
   const style = {
     backgroundImage: `url(${thumbnail})`,

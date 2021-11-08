@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import ReacDOM from "react-dom";
 import Link from "next/link";
 import Icon from "./Icon";
 import { useRouter } from "next/router";
 import { AuthContext } from "../pages/_app";
 import { logOut } from "../libs/FirebaseHelper";
-import { StoreContext, ACTION } from "../store/Store";
+import { useStore, ACTION } from "../store/Store";
 
 const SignIn = () => {
   return (
@@ -20,7 +20,7 @@ const SignIn = () => {
 const UserPanel = ({ authUser }) => {
   const [show, setShow] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
 
   return (
     <div className="user-panel">

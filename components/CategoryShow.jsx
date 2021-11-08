@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import Slide from "./Slide";
 import Screen from "./Screen";
-import { StoreContext } from "../store/Store";
+import { useStore } from "../store/Store";
 
 export default function CategoryShow({ content }) {
   const { title, data } = content;
   const [slideData, setSlideData] = useState([]);
   const [item, setItem] = useState(null);
   const [showScreen, setShowScreen] = useState(false);
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
 
   useEffect(() => {
     setSlideData(data);

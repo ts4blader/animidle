@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import RouteProtector from "../components/RouteProtector";
 import MyHead from "../components/MyHead";
 import Footer from "../components/Footer";
@@ -6,11 +6,11 @@ import Hero from "../components/Hero";
 import Player from "../components/Player";
 import CategoryShow from "../components/CategoryShow";
 import useFilmsData from "../libs/useFilmsData";
-import { StoreContext, ACTION } from "../store/Store";
+import { useStore, ACTION } from "../store/Store";
 
 export default function Browse() {
   const { films } = useFilmsData();
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
 
   return (
     <>

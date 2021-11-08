@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import Header from "../components/Header";
 import MyHead from "../components/MyHead";
 import Footer from "../components/Footer";
 import SignInForm from "../components/SignInForm";
 import SignUpForm from "../components/SignUpForm";
 import RouteProtector from "../components/RouteProtector";
-import { StoreContext } from "../store/Store";
+import { useStore } from "../store/Store";
 
 export default function SignIn() {
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
 
   return (
     <>
