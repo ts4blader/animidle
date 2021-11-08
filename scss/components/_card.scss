@@ -30,3 +30,12 @@
         z-index: $normal-layer + 1;
     }
 }
+@include responsive($break-point-xs) {
+    .card {
+        .title {
+            font-size: 1em;
+            left: 1rem;
+            bottom: 1rem;
+        }
+    }
+}
