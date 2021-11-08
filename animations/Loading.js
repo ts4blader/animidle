@@ -55,7 +55,7 @@ const floatBG = () => {
 
   tl.to(".loader__overlay", {
     duration: 30,
-    objectPosition: "80% 0",
+    objectPosition: "50% 0",
   });
 };
 
