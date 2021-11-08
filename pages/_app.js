@@ -1,28 +1,13 @@
-import React, { useEffect, createContext, useState } from "react";
+import React from "react";
 import "../scss/main.scss";
 import "../libs/FirebaseHelper";
 import Layout from "../components/Layout";
 import { Store } from "../store/Store";
-import { authChange } from "../libs/FirebaseHelper";
-
-export const AuthContext = createContext(null);
+import { AuthProvider } from "../store/AuthContext";
 
 function MyApp({ Component, pageProps }) {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    authChange(
-      (user) => {
-        setUser(user);
-      },
-      () => {
-        setUser(null);
-      }
-    );
-  }, []);
-
   return (
-    <AuthContext.Provider value={user}>
+    <AuthProvider>
       <Store>
         <div className="wrapper">
           <Layout>
@@ -30,7 +15,7 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         </div>
       </Store>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

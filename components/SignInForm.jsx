@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import AuthSection from "./AuthSection";
 import InputText from "./InputText";
 import { signIn, ERROR_CODE } from "../libs/FirebaseHelper";
-import { StoreContext, ACTION } from "../store/Store";
+import { useStore, ACTION } from "../store/Store";
 import { useRouter } from "next/router";
 
 export default function SignInForm() {
@@ -13,7 +13,7 @@ export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [state, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useStore();
 
   const handleSubmit = (e) => {
     e.preventDefault();

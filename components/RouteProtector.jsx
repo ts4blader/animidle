@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import { AuthContext } from "../pages/_app";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useAuth } from "../store/AuthContext";
 
 export default function RouteProtector({ loggedPath, unLoggedPath }) {
-  const user = useContext(AuthContext);
+  const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {

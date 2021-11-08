@@ -3,9 +3,9 @@ import ReacDOM from "react-dom";
 import Link from "next/link";
 import Icon from "./Icon";
 import { useRouter } from "next/router";
-import { AuthContext } from "../pages/_app";
 import { logOut } from "../libs/FirebaseHelper";
 import { useStore, ACTION } from "../store/Store";
+import { useAuth } from "../store/AuthContext";
 
 const SignIn = () => {
   return (
@@ -66,11 +66,11 @@ const UserPanel = ({ authUser }) => {
 export default function Header() {
   const [right, setRight] = useState(<SignIn />);
   const router = useRouter();
-  const authUser = useContext(AuthContext) || {};
+  const { user } = useAuth() || {};
 
   useEffect(() => {
     if (router.pathname === "/browse") {
-      setRight(<UserPanel authUser={authUser} />);
+      setRight(<UserPanel authUser={user} />);
     }
     if (router.pathname === "/signin") {
       setRight("");
