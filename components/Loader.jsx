@@ -9,9 +9,6 @@ export default function Loader() {
   const [soundDraw] = useState(
     typeof Audio !== "undefined" ? new Audio("/sounds/sword_draw.mp3") : null
   );
-  const [soundCover] = useState(
-    typeof Audio !== "undefined" ? new Audio("/sounds/sword_cover.mp3") : null
-  );
 
   useEffect(() => {
     // Set screen width
@@ -24,7 +21,7 @@ export default function Loader() {
       window.requestAnimationFrame((time) => {
         setTimeout(() => {
           //* Checked for client side
-          completeLoading(() => soundCover?.play(), window.innerWidth);
+          completeLoading(window.innerWidth);
         }, TOTAL_ANIMATION_TIME - time + ANIMATION_COMPLETE_DELAY);
       });
     });

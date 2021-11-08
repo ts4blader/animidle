@@ -1,13 +1,12 @@
 import { gsap } from "gsap";
 
-export const completeLoading = (soundPlay, screenWidth) => {
+export const completeLoading = (screenWidth) => {
   const tl = gsap.timeline();
 
   tl.to(".loader .text p", {
     duration: 0.5,
     y: "-100%",
     ease: "Back.easeOut(1.5)",
-    onComplete: soundPlay,
   })
     .to(
       ".loader .bar",
